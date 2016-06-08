@@ -14,3 +14,12 @@ exLength (Node x xs) = 1 + (exLength xs)
 exFirst :: List a -> a
 exFirst Empty = error "empty list"
 exFirst (Node x _) = x
+
+exTail :: List a -> List a
+exTail Empty = Empty
+exTail (Node x xs) = xs
+
+exLast :: List a -> a
+exLast Empty = error  "Empty list"
+exLast (Node x Empty) =  x
+exLast (Node x xs) = exLast xs
