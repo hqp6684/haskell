@@ -23,3 +23,7 @@ exLast :: List a -> a
 exLast Empty = error  "Empty list"
 exLast (Node x Empty) =  x
 exLast (Node x xs) = exLast xs
+
+isThisThree :: Int -> Bool
+isThisThree 3 = True
+isThisThree _ = False
