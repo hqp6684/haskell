@@ -1,0 +1,62 @@
+referential transparency : same function, given the same values to evalute, will always return the same result. 
+Expression: includes concrete values, variables or functions.
+Function: is an expression that is applied to an argument or input, and one applied, can be reduced or evaluated.
+
+lambda terms: expressions, variables, and abstractions
+
+--Expression refers to a superset of all those things: 
+  an expression can be a variable name
+  an abstraction or a combination of those things.
+--Abstraction is a function :
+  it has a head (a lambda) and a body and is applied to an argument
+  Argument : is an input value
+  The head of teh function is a λ followed by a variable name, the body of the function is another expression.
+
+  λx.x
+
+    The variable named in the head is the parameter and binds all instances of the same variable in the body of the function.
+  --- ALPHA EQUIVALENCE ---
+
+  ---- BETA REDUCTION ---
+  When we apply a function to an argument, we substitute the input express for all instances of bound variables within the body of the abstraction (aka function) , you can also eliminate the head of the abstraction, since its only purpose was to bind a variable.
+  example: λx.x 
+  Using beta reduction: this above become x
+  ie2: λx.x+1 =br=> x+1
+  ie3: (λx.x)2 =br=> 2. OR λ2.2 =br=> 2
+
+--Beta reduction is the process of applying a lambda term - expresion, abstraction, variable - to an argument (input) and eliminating the head.
+  Eliminating the heads tells you the function has been applied.
+  λx.x =br=> x
+  (λx.x) y = λy (λx.x is an expression/abstraction/head-body) =br=> y
+  ie2: (λx.x)(λy.y) =br=> <exp><exp> => <exp> => λx with no body == x
+
+  =BR==> y 
+
+  we'd substitude the entier abstraction in for x, 
+  x := z to indicate z will be substituded for all occurrences of x
+  (here z is the abstraction/function λy.y) 
+
+  x := (λy.y) 
+
+  ie3: (λx.x)(λy.y)z 
+
+  *NOTE lambda is left associative
+  ie3: ((λx.x)(λy.y))z 
+  ie3: ([x:=(λy.y)])z 
+  ie3: y z => z
+
+  λx.x is called identify function : f(x) = x       
+
+--Free variables (that is, variables in the body (after . of λx.) that are not bound by the head (in this case y) λx.xy
+  λxy.yx === λab.ba , λx.xz !== λx.xy because the free variables maybe different
+  Alpha equivalence doesn't not apply to free variables. 
+
+  Currying - Each lambda can only bind one parameter and can only accept one argument. Function require multiple arguments have multiple nested heads. When you apply it one and eliminate the first (left most) head, the next one is applied and so on.
+  λxy.xy === λx.(λy.xy) 
+
+--- COMBINATORS ---
+
+Combinator is a lambda term with no free variables. It serves only to combine the arguments it is given.
+
+
+
