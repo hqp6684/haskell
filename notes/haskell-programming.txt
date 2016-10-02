@@ -129,4 +129,42 @@ Combinator is a lambda term with no free variables. It serves only to combine th
           instead of ( 2 ^ 3) ^ 4
                       4060 
                       this is left associative
-                      
+          
+
+    Anonymous function syntax in Haskell uses a backslash to represent a lambda
+
+    (\x -> x) 0  === λx.x 
+    0 
+
+    (\x->x) "blah"
+    "blah"
+
+
+    We can also define the same function in REPL using let:
+
+    let id = \x -> x
+    id 0
+    0
+
+    Or we can define it this way
+
+    let id x = x
+    id 5
+    5
+
+
+    Let expressions into their lambda forms!!
+
+    let a = b in c === (\a -> c) b
+
+    let x = 100 in x + 1000 === (\x -> x + 1000) 100
+
+    Where expression
+
+    c where a = b 
+
+    x + 1000  where x = 10
+    
+
+
+
