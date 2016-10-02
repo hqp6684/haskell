@@ -61,4 +61,72 @@ Combinator is a lambda term with no free variables. It serves only to combine th
 
 --- Chapter 2 - Hello Haskell ---
 
+  Function
+  
+  ie: triple x   =  x * 3
+      [1]   [2] [3] [4] 
 
+    1. name
+    2. Argument to our function. The arguments to our function correspond to the head of a lambdaa.
+    3. = is used to define (or declare) vaalues and functions
+    4. Body of the function, an expression tahat could be evaluated if the function is applied to a value. 
+
+    Evaluating functions
+
+    Calling a function by name and introducing a value for the x argument makes our function a reducible expression
+
+    ie: triple    2
+        (triple x = x * 3 ) 2
+        (triple 2 = 2 * 3 )
+        Beta reduction -> 2*3 => 6
+
+    Use functions in an infix or prefix style. 
+    
+      10 `div` 4 
+      2
+
+      div 10 4
+      2 
+
+
+      :info to get information such as associativity and precedence of operator.
+
+      ie. 
+
+      :i (*)
+      infixl    7  *  
+      [1]       [2] [3]
+
+      1. infixl means infix operator, left associative 
+      2. 7 is the precedence: higher is applied first, on a scaale of 0 - 9 
+      3. infix function name: in this case, multiplicaation
+
+      :i (+) (-)
+      infixl 6 +, -
+      --      [4]
+
+      4. We use the comma here to assign left-associativity and precedence 6 for two functions (+) and (-)
+
+      :i (^) 
+      infixr  8  ^
+      [1]    [2] [3] 
+      
+      1.infixr means infix operator, right associative
+      2. 8 is the precedence. Higher precedence, indicated by higher numbers, is applied first, so this is higher precedence
+         thaan multiplication (7), addtioin, and substraction (6)
+
+      3. Infix name : in this camse exponentiation.
+
+      ie. infix r
+
+          2 ^ 3 ^ 4
+
+          This is how haaskell will evauate the expression
+
+          2 ^ (3 ^ 4)
+          24177516.....
+          
+          instead of ( 2 ^ 3) ^ 4
+                      4060 
+                      this is left associative
+                      
