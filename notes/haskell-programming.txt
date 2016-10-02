@@ -59,4 +59,6 @@ lambda terms: expressions, variables, and abstractions
 Combinator is a lambda term with no free variables. It serves only to combine the arguments it is given.
 
 
+--- Chapter 2 - Hello Haskell ---
+
 
